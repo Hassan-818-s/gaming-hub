@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Hub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      margin: 0;
+      text-align: center;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Particle Background */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 68, 54, 0.8);
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      animation: float 10s infinite ease-in-out;
+    }
+
+    .particle:nth-child(1) { top: 20%; left: 10%; animation-duration: 12s; }
+    .particle:nth-child(2) { top: 40%; left: 80%; animation-duration: 15s; }
+    .particle:nth-child(3) { top: 70%; left: 30%; animation-duration: 18s; }
+    .particle:nth-child(4) { top: 50%; left: 60%; animation-duration: 20s; }
+    .particle:nth-child(5) { top: 10%; left: 50%; animation-duration: 22s; }
+    .particle:nth-child(6) { top: 80%; left: 20%; animation-duration: 25s; }
+    .particle:nth-child(7) { top: 60%; left: 90%; animation-duration: 30s; }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      50% { transform: translateY(-100px) scale(1.3); opacity: 0.4; }
+      100% { transform: translateY(0) scale(1); opacity: 0.8; }
+    }
+
+    /* Header */
+    header {
+      background: #111;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      animation: slideDown 1s ease-out;
+    }
+
+    header h1 {
+      color: #f44336;
+      margin: 0;
+      font-size: 28px;
+      animation: glow 2s infinite alternate;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 90vh;
+      background: url("images/1360354.png") center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h2 {
+      font-size: 50px;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 1.5s ease forwards 0.5s;
+    }
+
+    .hero button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      background: #f44336;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+      opacity: 0;
+      animation: fadeUp 1.5s ease forwards 1s, pulse 2s infinite 2s;
+    }
+
+    .hero button:hover {
+      background: #ff6347;
+      transform: scale(1.05);
+    }
+
+    /* Options Section */
+    .options {
+      display: none;
+      padding: 60px 20px;
+      background: #111;
+      animation: fadeIn 1.5s ease-in-out;
+      position: relative;
+      z-index: 1;
+    }
+
+    .options h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeUp 1.5s ease forwards;
+    }
+
+    .option-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .option-buttons a {
+      display: inline-block;
+      padding: 15px 25px;
+      background: #f44336;
+      border-radius: 8px;
+      font-size: 18px;
+      text-decoration: none;
+      color: #fff;
+      transform: translateY(50px);
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .option-buttons a:nth-child(1) { animation-delay: 0.3s; }
+    .option-buttons a:nth-child(2) { animation-delay: 0.5s; }
+    .option-buttons a:nth-child(3) { animation-delay: 0.7s; }
+    .option-buttons a:nth-child(4) { animation-delay: 0.9s; }
+    .option-buttons a:nth-child(5) { animation-delay: 1.1s; }
+
+    .option-buttons a:hover {
+      background: #ff6347;
+      transform: scale(1.1) rotate(-2deg);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #f44336, 0 0 10px #f44336; }
+      to { text-shadow: 0 0 20px #ff6347, 0 0 40px #ff6347; }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particle Background -->
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <h1>Gaming Hub</h1>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Welcome to the Ultimate Gaming Hub</h2>
+    <button onclick="showOptions()">Join Now</button>
+  </section>
+
+  <!-- Options -->
+  <section class="options" id="options">
+    <h2>Choose Your Path</h2>
+    <div class="option-buttons">
+      <a href="valorant.html">🎮 Valorant</a>
+      <a href="fortnite.html">🔫 Fortnite</a>
+      <a href="fifa.html">⚽ FIFA</a>
+      <a href="news.html">📰 News</a>
+      <a href="community.html">👥 Community</a>
+    </div>
+  </section>
+
+  <script>
+    function showOptions() {
+      const options = document.getElementById("options");
+      options.style.display = "block";
+      options.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+
+</body>
+</html>
